@@ -1,3 +1,11 @@
+<!--
+ * @Author: metyoo metyoo@qq.com
+ * @Date: 2026-05-06 11:27:19
+ * @LastEditors: metyoo metyoo@qq.com
+ * @LastEditTime: 2026-05-07 09:42:21
+ * @FilePath: \VideoTools-1.4.0\README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # VideoTools
 
 ## 简介
@@ -21,8 +29,10 @@ VideoTools 是一个用于视频处理的轻量工具集。
 - 视频压缩（支持 CPU 与 Intel/Nvidia/AMD 硬件编码）
 - 格式转换（支持目标格式：`mp4 / avi / mkv`）
 - 裁剪（`-ss` + `-t`，默认无重编码 `-c copy`，快速处理）
+- **裁剪反选**（删除选中片段，保留前后部分）
+- **视频合并**（多视频拼接，支持拖拽排序）
 - 转 GIF（支持 `fps/scale`，可选 `palettegen/paletteuse` 与循环）
-- 视频倍速（加速/减速）
+- 视频倍速（加速/减速，修复花屏问题）
 - 修改尺寸（缩放到指定宽高）
 - 音频处理（提取音频或删除音轨）
 
@@ -58,6 +68,15 @@ VideoTools 是一个用于视频处理的轻量工具集。
 ![画质对比](./imgs/compress-orig.png)
 
 
+## 关于本分支
+
+本分支基于 [csthinker/VideoTools](https://github.com/csthinker/VideoTools) 原版进行扩展，新增以下功能：
+- 视频合并模块
+- 裁剪反选功能
+- 视频加速花屏修复
+
+感谢原作者的开源贡献！
+
 ## 编译环境
 
 - Visual Studio 2022
@@ -66,6 +85,25 @@ VideoTools 是一个用于视频处理的轻量工具集。
 ## 配置文件
 
 用户配置文件存储在用户目录下的 `AppData\Roaming\.VideoTools_250405` 文件夹内（包含 FFmpeg 路径等设置）。
+## 新增功能说明
+
+### 视频合并
+- 支持拖拽多个视频文件到列表
+- 支持调整视频顺序（上移/下移/移除）
+- 统一编码确保不同视频源的兼容性
+- 右键菜单提供快捷操作
+
+### 裁剪反选
+- 在裁剪面板勾选"反选/删除该片段"
+- 删除选中片段，自动合并保留的前后部分
+- 使用 FFmpeg concat 无缝拼接
+
+### 视频加速优化
+- 修复原版本加速时的花屏/马赛克问题
+- 使用 `setpts` 滤镜调整视频时间戳
+- 使用 `atempo` 滤镜链处理音频（支持 >2x 加速）
+- 添加强制关键帧参数确保画面完整性
+
 ## 裁剪与 GIF 使用提示
 
 - 裁剪默认使用无重编码（`-c copy`），起止点以关键帧为准；如需帧级准确裁剪可改为重新编码方案（后续可扩展）。
