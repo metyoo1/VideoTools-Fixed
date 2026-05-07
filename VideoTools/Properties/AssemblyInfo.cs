@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("VideoTools")]
-[assembly: AssemblyDescription("这是一个使用ffmpeg实现视频处理的工具")]
+[assembly: AssemblyTitle("VideoTools-Fix")]
+[assembly: AssemblyDescription("基于VideoTools的视频处理工具，新增视频合并、裁剪反选、加速修复等功能")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("csthinker")]
-[assembly: AssemblyProduct("VideoTools")]
-[assembly: AssemblyCopyright("Copyright © 2025 By CSThinker")]
+[assembly: AssemblyCompany("metyoo")]
+[assembly: AssemblyProduct("VideoTools-Fix")]
+[assembly: AssemblyCopyright("Copyright © 2026 metyoo")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // 可以指定所有值，也可以使用以下所示的 "*" 预置版本号和修订号
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.0.0")]
-[assembly: AssemblyFileVersion("1.5.0.0")]
+[assembly: AssemblyVersion("1.5.0.1")]
+[assembly: AssemblyFileVersion("1.5.0.1")]

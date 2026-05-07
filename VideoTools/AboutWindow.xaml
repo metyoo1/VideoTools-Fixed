@@ -43,27 +43,32 @@
     <Grid Margin="15">
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="VideoTools" FontSize="24" FontWeight="Bold"/>
-                <TextBlock x:Name="versionText" Text="v1.0.0" FontSize="16" Margin="10,8,0,0"/>
-                <TextBlock Text="By: CSThinker" FontSize="15" Margin="10,8,0,0"/>
+                <TextBlock Text="VideoTools-Fix" FontSize="24" FontWeight="Bold"/>
+                <TextBlock x:Name="versionText" Text="v1.5.0.1" FontSize="16" Margin="10,8,0,0"/>
+                <TextBlock Text="By: metyoo" FontSize="15" Margin="10,8,0,0"/>
             </StackPanel>
             <TextBlock Text="简介：" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
-                 软件使用ffmpeg作为底层视频处理工具
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,10">
+                 基于 VideoTools 原版扩展，使用 FFmpeg 作为底层视频处理工具
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20" FontSize="12" Foreground="Gray">
+                 原作者：CSThinker | 扩展：metyoo
             </TextBlock>
 
             <TextBlock Text="功能支持：" FontWeight="Bold" Margin="0,0,0,10"/>
             <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
                 • 视频压缩&#x0a;
                 • 格式转换&#x0a;
+                • 视频裁剪（新增：反选删除片段）&#x0a;
+                • 视频合并（新增：多视频拼接）&#x0a;
                 • GIF制作&#x0a;
-                • 视频加速&#x0a;
+                • 视频加速（修复：花屏问题）&#x0a;
                 • 尺寸调整
             </TextBlock>
 
             <TextBlock Text="开源协议：" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Left"/>
             <TextBlock Text="GPL-3.0 License" Margin="0,0,0,20"/>
-            <TextBlock Text="©2025 VideoTools. All rights reserved." Foreground="Gray"/>
+            <TextBlock Text="©2026 VideoTools-Fix by metyoo. All rights reserved." Foreground="Gray"/>
             <Button Content="确定" 
                     Style="{StaticResource ModernButtonStyle}"
                     Width="70"
