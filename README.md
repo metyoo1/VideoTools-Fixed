@@ -2,7 +2,7 @@
  * @Author: metyoo metyoo@qq.com
  * @Date: 2026-05-06 11:27:19
  * @LastEditors: metyoo metyoo@qq.com
- * @LastEditTime: 2026-05-07 09:42:21
+ * @LastEditTime: 2026-05-14 13:32:56
  * @FilePath: \VideoTools-1.4.0\README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -74,6 +74,8 @@ VideoTools 是一个用于视频处理的轻量工具集。
 - 视频合并模块
 - 裁剪反选功能
 - 视频加速花屏修复
+- 视频水印功能
+- 全面替换图标系统（解决字体库不一致导致的图标缺失问题）
 
 感谢原作者的开源贡献！
 
@@ -103,6 +105,20 @@ VideoTools 是一个用于视频处理的轻量工具集。
 - 使用 `setpts` 滤镜调整视频时间戳
 - 使用 `atempo` 滤镜链处理音频（支持 >2x 加速）
 - 添加强制关键帧参数确保画面完整性
+
+### 视频水印
+- 支持自定义文字水印内容
+- 可调节字体大小（12-72px）
+- 支持5种位置：左上/右上/左下/右下/居中
+- 可调节透明度（10%-100%）
+- 支持5种颜色：白/黑/红/黄/蓝
+- 使用微软雅黑字体确保中文显示正常
+
+### 图标系统更新
+- 全面替换原有 iconfont.ttf 字体图标为自定义 PNG 图标
+- 解决字体库在不同环境下缺失导致的图标显示异常问题
+- 新增13个功能图标，采用简洁的矢量风格设计
+- 所有图标资源独立存放于 `assets/icons/` 目录，便于维护和替换
 
 ## 裁剪与 GIF 使用提示
 
