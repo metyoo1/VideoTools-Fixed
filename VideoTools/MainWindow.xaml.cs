@@ -3015,5 +3015,173 @@ namespace VideoTools
                 }
             }
         }
+
+        /* 水印功能：Slider值变化事件 */
+        private void SliderWatermarkSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (textBlockWatermarkSize != null)
+            {
+                textBlockWatermarkSize.Content = ((int)sliderWatermarkSize.Value).ToString();
+            }
+        }
+
+        private void SliderWatermarkOpacity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (textBlockWatermarkOpacity != null)
+            {
+                textBlockWatermarkOpacity.Content = sliderWatermarkOpacity.Value.ToString("F1");
+            }
+        }
+
+        /* 水印功能：开始添加水印 */
+        private async void BtnWatermarkStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(sVideoFilePath) || !File.Exists(sVideoFilePath))
+            {
+                MessageBox.Show("请先选择视频文件！", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            string watermarkText = textBoxWatermarkText.Text.Trim();
+            if (string.IsNullOrEmpty(watermarkText))
+            {
+                MessageBox.Show("请输入水印文字！", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!isFFmpegExist())
+            {
+                MessageBox.Show("FFmpeg 未配置，请在设置中配置 FFmpeg 路径！", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // 获取水印参数
+            int fontSize = (int)sliderWatermarkSize.Value;
+            double opacity = sliderWatermarkOpacity.Value;
+            int positionIndex = comboBoxWatermarkPosition.SelectedIndex;
+            int colorIndex = comboBoxWatermarkColor.SelectedIndex;
+
+            // 构建输出路径 - 使用原视频所在文件夹，并添加时间戳
+            string fileNameWithoutExt = IOPath.GetFileNameWithoutExtension(sVideoFilePath);
+            string ext = IOPath.GetExtension(sVideoFilePath);
+            string videoDir = IOPath.GetDirectoryName(sVideoFilePath);
+            string timeStamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string outputPath = IOPath.Combine(videoDir, string.Format("{0}_水印_{1}{2}", fileNameWithoutExt, timeStamp, ext));
+
+            // 颜色映射
+            string[] colors = { "white", "black", "red", "yellow", "blue" };
+            string fontColor = colors[colorIndex];
+
+            // 位置映射 (x:y)
+            string position;
+            switch (positionIndex)
+            {
+                case 0: // 左上角
+                    position = string.Format("x=10:y=10");
+                    break;
+                case 1: // 右上角
+                    position = string.Format("x=w-text_w-10:y=10");
+                    break;
+                case 2: // 左下角
+                    position = string.Format("x=10:y=h-text_h-10");
+                    break;
+                case 3: // 右下角
+                    position = string.Format("x=w-text_w-10:y=h-text_h-10");
+                    break;
+                case 4: // 居中
+                    position = string.Format("x=(w-text_w)/2:y=(h-text_h)/2");
+                    break;
+                default:
+                    position = string.Format("x=10:y=h-text_h-10");
+                    break;
+            }
+
+            try
+            {
+                if (_cancellationTokenSource != null)
+                {
+                    _cancellationTokenSource.Dispose();
+                    _cancellationTokenSource = null;
+                }
+
+                ProcessingOverlay.Visibility = Visibility.Visible;
+                progressBarOverlayRunning.IsIndeterminate = true;
+                textBoxOverlayRunning.Text = "正在添加水印···";
+                _cancellationTokenSource = new CancellationTokenSource();
+
+                await Task.Run(() =>
+                {
+                    var token = _cancellationTokenSource.Token;
+
+                    // 构建 FFmpeg 命令
+                    // 使用 drawtext 滤镜添加文字水印 - 使用系统默认中文字体
+                    // 尝试使用Windows系统自带的微软雅黑字体
+                    string fontPath = "C\\:/Windows/Fonts/msyh.ttc";
+                    string drawtextFilter = string.Format(
+                        "drawtext=fontfile='{0}':text='{1}':fontsize={2}:{3}:fontcolor={4}@{5}",
+                        fontPath,
+                        watermarkText.Replace("'", "\\'").Replace(":", "\\:"),
+                        fontSize,
+                        position,
+                        fontColor,
+                        opacity.ToString("F1")
+                    );
+
+                    string arguments = string.Format(
+                        "-y -i \"{0}\" -vf \"{1}\" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a copy \"{2}\"",
+                        sVideoFilePath,
+                        drawtextFilter,
+                        outputPath
+                    );
+
+                    RunFFmpegSimple(arguments, token);
+
+                    if (!token.IsCancellationRequested)
+                    {
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            if (File.Exists(outputPath) && new FileInfo(outputPath).Length > 0)
+                            {
+                                MessageBox.Show("水印添加完成！", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "explorer.exe",
+                                    Arguments = "/select,\"" + outputPath + "\"",
+                                    UseShellExecute = false
+                                });
+                            }
+                            else
+                            {
+                                MessageBox.Show("水印添加失败，输出文件未生成。", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        });
+                    }
+                }, _cancellationTokenSource.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                // 用户取消，删除不完整输出
+                try
+                {
+                    if (File.Exists(outputPath))
+                        File.Delete(outputPath);
+                }
+                catch { }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("添加水印出错：{0}", ex.Message), "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                ProcessingOverlay.Visibility = Visibility.Collapsed;
+                progressBarOverlayRunning.IsIndeterminate = false;
+                if (_cancellationTokenSource != null)
+                {
+                    _cancellationTokenSource.Dispose();
+                    _cancellationTokenSource = null;
+                }
+            }
+        }
     }
 }

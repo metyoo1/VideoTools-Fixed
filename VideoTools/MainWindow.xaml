@@ -734,9 +734,9 @@
                 <TextBlock Foreground="#8F8F8F" FontSize="13" Margin="15 15 0 20"/>
                 <UniformGrid Columns="2">
                     <StackPanel Orientation="Horizontal" Margin="0,0,-89,0">
-                        <TextBlock Text="&#xe6dd;" FontFamily="./assets/fonts/#iconfont" FontSize="26"  Margin="10 0 0 0" Height="30"/>
+                        <Image Source="pack://application:,,,/assets/icons/appicon.png" Width="26" Height="26" Margin="10 0 0 0"/>
                         <TextBlock FontSize="18" 
-                                   VerticalAlignment="Center" Margin="5,0,0,0" 
+                                   VerticalAlignment="Center" Margin="8,0,0,0" 
                                    RenderTransformOrigin="0.214,0.333" 
                                    Width="120" Height="27" 
                                    Text="视频处理" 
@@ -749,8 +749,7 @@
                              Style="{DynamicResource RadioButtonStyle}" 
                              Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe607;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#2196F3"/>
+                        <Image Source="pack://application:,,,/assets/icons/compress.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock Margin="10 0 0 0" Text="视频压缩"  FontSize="14" VerticalAlignment="Center" 
                                    Foreground="{Binding Foreground, RelativeSource={
                                             RelativeSource FindAncestor,
@@ -779,8 +778,7 @@
                                  Style="{DynamicResource RadioButtonStyle}"
                                  Click="RadioBtn_Compress_Click">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xe6d1;" FontFamily="./assets/fonts/#iconfont" FontSize="20"
-                                       Margin="28 0 0 0" Foreground="#2196F3"/>
+                            <Image Source="pack://application:,,,/assets/icons/batch.png" Width="20" Height="20" Margin="28 0 0 0"/>
                             <TextBlock Margin="10 0 0 0" Text="批量压缩" FontSize="13" VerticalAlignment="Center"
                                        Foreground="{Binding Foreground, RelativeSource={
                                                 RelativeSource FindAncestor,
@@ -796,8 +794,7 @@
                      Style="{DynamicResource RadioButtonStyle}" 
                      Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe948;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                           Margin="10 0 0 0" Foreground="#1E1E1E"/>
+                        <Image Source="pack://application:,,,/assets/icons/cut.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock Margin="10 0 0 0" Text="视频裁剪"  FontSize="14" VerticalAlignment="Center" 
                            Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor,
@@ -811,8 +808,7 @@
                 <RadioButton Tag="convert" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe6d1;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#CD3700"/>
+                        <Image Source="pack://application:,,,/assets/icons/convert.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="格式转换"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                             RelativeSource FindAncestor, 
@@ -826,8 +822,7 @@
                 <RadioButton Tag="gif" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe686;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="Green"/>
+                        <Image Source="pack://application:,,,/assets/icons/gif.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="转动图"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
@@ -837,8 +832,7 @@
                 <RadioButton Tag="multiple" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xf0de;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#E59151"/>
+                        <Image Source="pack://application:,,,/assets/icons/speed.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="视频加速"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
@@ -848,8 +842,7 @@
                 <RadioButton Tag="resize" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe600;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#FF5F5F" />
+                        <Image Source="pack://application:,,,/assets/icons/resize.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="修改尺寸"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
@@ -859,8 +852,7 @@
                 <RadioButton Tag="voice" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe67f;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#A57BD7" />
+                        <Image Source="pack://application:,,,/assets/icons/audio.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="音频处理"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
@@ -870,9 +862,18 @@
                 <RadioButton Tag="merge" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xe6d1;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#4CAF50" />
+                        <Image Source="pack://application:,,,/assets/icons/merge.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="视频合并"  FontSize="14" VerticalAlignment="Center"
+                                   Foreground="{Binding Foreground, RelativeSource={
+                                    RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Tag="watermark" GroupName="SidebarNav"
+                             Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/assets/icons/watermark.png" Width="22" Height="22" Margin="10 0 0 0"/>
+                        <TextBlock  Margin="10 0 0 0" Text="视频水印"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
                     </StackPanel>
@@ -881,8 +882,7 @@
                 <RadioButton x:Name="radiobtn_setting" Tag="setting" GroupName="SidebarNav"
                              Style="{DynamicResource RadioButtonStyle}" Click="RadioBtn_Compress_Click" >
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xea6b;" FontFamily="./assets/fonts/#iconfont" FontSize="22" 
-                                   Margin="10 0 0 0" Foreground="#6074C2" />
+                        <Image Source="pack://application:,,,/assets/icons/setting.png" Width="22" Height="22" Margin="10 0 0 0"/>
                         <TextBlock  Margin="10 0 0 0" Text="设置"  FontSize="14" VerticalAlignment="Center"
                                    Foreground="{Binding Foreground, RelativeSource={
                                     RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type RadioButton}}}" />
@@ -899,11 +899,8 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="15,0,0,15">
-                <TextBlock Text="&#xE601;"
-                           FontFamily="./assets/fonts/#iconfont"
-                           FontSize="20"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"/>
+                <Image Source="pack://application:,,,/assets/icons/about.png" Width="20" Height="20"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Button>
         </Grid>
 
@@ -1232,7 +1229,7 @@
             </Grid>
 
             <!-- 视频合并面板 -->
-            <Grid x:Name="mergePanel" Visibility="Collapsed" Margin="0,10,0,0">
+            <Grid x:Name="mergePanel" Visibility="Collapsed" Margin="0,50,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
@@ -1284,6 +1281,51 @@
                     <Button x:Name="btnMergeStart" Content="开始合并" Style="{StaticResource ModernButtonStyle}"
                             Width="90" Height="32" Margin="15,0,0,0" Click="BtnMergeStart_Click"/>
                 </StackPanel>
+            </Grid>
+
+            <!-- 水印面板 -->
+            <Grid x:Name="watermarkPanel" Visibility="Collapsed" Margin="0,300,0,0">
+                <Label Content="水印文字" HorizontalAlignment="Left" Margin="22,26,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <TextBox x:Name="textBoxWatermarkText" HorizontalAlignment="Left" Height="30" Margin="22,60,0,0" 
+                         TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="14" Text="测试水印"/>
+                
+                <Label Content="字体大小" HorizontalAlignment="Left" Margin="22,100,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Slider x:Name="sliderWatermarkSize" Style="{StaticResource ModernSliderStyle}"
+                        HorizontalAlignment="Left" Margin="28,140,0,0" VerticalAlignment="Top" Width="200" 
+                        Minimum="12" Maximum="72" Value="52" TickFrequency="2" IsSnapToTickEnabled="True" 
+                        ValueChanged="SliderWatermarkSize_ValueChanged"/>
+                <Label x:Name="textBlockWatermarkSize" Content="52" HorizontalAlignment="Left" Margin="240,134,0,0" VerticalAlignment="Top" FontSize="16"/>
+                
+                <Label Content="水印位置" HorizontalAlignment="Left" Margin="280,100,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <ComboBox x:Name="comboBoxWatermarkPosition" HorizontalAlignment="Left" Margin="280,140,0,0" 
+                          VerticalAlignment="Top" Width="120" FontSize="14" SelectedIndex="3">
+                    <ComboBoxItem Content="左上角"/>
+                    <ComboBoxItem Content="右上角"/>
+                    <ComboBoxItem Content="左下角"/>
+                    <ComboBoxItem Content="右下角"/>
+                    <ComboBoxItem Content="居中"/>
+                </ComboBox>
+                
+                <Label Content="透明度" HorizontalAlignment="Left" Margin="22,170,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Slider x:Name="sliderWatermarkOpacity" Style="{StaticResource ModernSliderStyle}"
+                        HorizontalAlignment="Left" Margin="28,210,0,0" VerticalAlignment="Top" Width="200" 
+                        Minimum="0.1" Maximum="1.0" Value="0.6" TickFrequency="0.1" IsSnapToTickEnabled="True" 
+                        ValueChanged="SliderWatermarkOpacity_ValueChanged"/>
+                <Label x:Name="textBlockWatermarkOpacity" Content="0.6" HorizontalAlignment="Left" Margin="240,204,0,0" VerticalAlignment="Top" FontSize="16"/>
+                
+                <Label Content="字体颜色" HorizontalAlignment="Left" Margin="280,170,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <ComboBox x:Name="comboBoxWatermarkColor" HorizontalAlignment="Left" Margin="280,210,0,0" 
+                          VerticalAlignment="Top" Width="120" FontSize="14" SelectedIndex="0">
+                    <ComboBoxItem Content="白色"/>
+                    <ComboBoxItem Content="黑色"/>
+                    <ComboBoxItem Content="红色"/>
+                    <ComboBoxItem Content="黄色"/>
+                    <ComboBoxItem Content="蓝色"/>
+                </ComboBox>
+                
+                <Button Content="开始添加水印" Style="{StaticResource ModernButtonStyle}"
+                        HorizontalAlignment="Left" Margin="485,195,0,0" VerticalAlignment="Top" Width="120" Height="36"
+                        Click="BtnWatermarkStart_Click"/>
             </Grid>
 
             <!-- 设置面板 -->
@@ -1357,15 +1399,8 @@
                     Click="BtnOpenFile_Click"
                     Visibility="Visible" Height="32" Width="120">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock 
-                            Text="&#xe632;" 
-                            FontFamily="./assets/fonts/#iconfont" 
-                            FontSize="16"
-                            VerticalAlignment="Center"
-                            Margin="2,0,3,0"/>
-                        <TextBlock 
-                            Text="打开视频文件" 
-                            VerticalAlignment="Center"/>
+                        <TextBlock Text="📁" FontSize="16" VerticalAlignment="Center" Margin="2,0,3,0"/>
+                        <TextBlock Text="打开视频文件" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </Grid>
@@ -1447,8 +1482,7 @@
 
                         <!-- 播放/暂停按钮 -->
                         <Button x:Name="playPauseButton" 
-                            Content="&#xe87c;" 
-                            FontFamily="./assets/fonts/#iconfont" 
+                            Content="▶" 
                             FontSize="15" 
                             Foreground="White"
                             Width="25" 
@@ -1460,8 +1494,7 @@
                             Click="PlayPauseButton_Click"/>
 
                         <!-- 停止按钮 -->
-                        <Button Content="&#xea89;" 
-                            FontFamily="./assets/fonts/#iconfont"
+                        <Button Content="⏹" 
                             FontSize="15" 
                             Foreground="White"
                             Width="25" 

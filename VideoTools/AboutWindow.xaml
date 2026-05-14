@@ -44,7 +44,7 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="VideoTools-Fix" FontSize="24" FontWeight="Bold"/>
-                <TextBlock x:Name="versionText" Text="v1.5.0.1" FontSize="16" Margin="10,8,0,0"/>
+                <TextBlock x:Name="versionText" Text="v1.6.0.0" FontSize="16" Margin="10,8,0,0"/>
                 <TextBlock Text="By: metyoo" FontSize="15" Margin="10,8,0,0"/>
             </StackPanel>
             <TextBlock Text="简介：" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -61,6 +61,7 @@
                 • 格式转换&#x0a;
                 • 视频裁剪（新增：反选删除片段）&#x0a;
                 • 视频合并（新增：多视频拼接）&#x0a;
+                • 视频水印（新增：自定义文字水印）&#x0a;
                 • GIF制作&#x0a;
                 • 视频加速（修复：花屏问题）&#x0a;
                 • 尺寸调整
